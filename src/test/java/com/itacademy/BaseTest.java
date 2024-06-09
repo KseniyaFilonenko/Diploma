@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 
 import java.time.Duration;
 
@@ -14,6 +15,7 @@ public class BaseTest {
     protected WebDriver driver;
 
     @BeforeTest
+    @Parameters("browser")
     public void setUp() {
         if (browser.equalsIgnoreCase("chrome")) {
             System.setProperty("webdriver.chrome.driver", "C:/Drivers/chromedriver.exe");
