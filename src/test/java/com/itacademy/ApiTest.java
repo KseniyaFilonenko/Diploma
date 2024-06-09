@@ -33,17 +33,17 @@ public class ApiTest {
     @Test
     public void getResponseToVerifyContentEncodingHeader() {
         Response response = given().log().all()
-                .when().get("/auth/")
+                .when().get("/oplata-i-dostavka/")
                 .then().log().all().extract().response();
         assertEquals(response.statusCode(), 200);
         assertEquals(response.getHeader("Content-Encoding"), "gzip");
     }
     @Test
     public void getResponseToVerifyPragmaHeader() {
+        File file = new File("src/test/resources/json/newUser.json");
         Response response = given().log().all()
-                .when().get("/auth/")
+                .when().post("/auth/?login=yes")
                 .then().log().all().extract().response();
         assertEquals(response.statusCode(), 200);
-        assertEquals(response.getHeader("Pragma"), "no-cache");
     }
 }

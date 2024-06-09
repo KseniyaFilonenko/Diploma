@@ -1,4 +1,8 @@
 {
-  "USER_LOGIN": "test",
-  "USER_PASSWORD": "test2"
+  "AUTH_FORM": "Y",
+  "TYPE": "AUTH",
+  "backurl": "/auth/",
+  "USER_LOGIN": "k@tut.by",
+  "USER_PASSWORD": "filonenko1234",
+  "Login": "Войти"
 }
