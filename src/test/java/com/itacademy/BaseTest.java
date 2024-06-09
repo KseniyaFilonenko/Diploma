@@ -22,7 +22,6 @@ public class BaseTest {
             System.setProperty("webdriver.gecko.driver", "C:/Drivers/geckodriver.exe");
             driver = new FirefoxDriver();
         }
-        driver = new ChromeDriver();
         driver.get("https://belita-shop.by/");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
