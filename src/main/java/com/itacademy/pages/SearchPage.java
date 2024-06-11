@@ -19,8 +19,8 @@ public class SearchPage extends BasePage{
         super(driver);
         PageFactory.initElements(driver, this);
     }
-    public void setSearchField(){
-        searchField.sendKeys("крем");
+    public void typeSearchField(String searchText){
+        searchField.sendKeys(searchText);
     }
     public void clickSearchIcon(){
         searchIcon.click();

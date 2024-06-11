@@ -13,8 +13,8 @@ public class WebsiteTest extends BaseTest{
         homePage.openUrl();
         homePage.openLoginPage();
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.setValidLogin();
-        loginPage.setValidPassword();
+        loginPage.typeValidLogin("filonenko_k@tut.by");
+        loginPage.typeValidPassword("filonenko1234");
         loginPage.clickEnterButton();
         Assert.assertEquals(loginPage.getSuccessLoginMessage(), loginPage.expectedSuccessLoginMessage());
     }
@@ -24,8 +24,8 @@ public class WebsiteTest extends BaseTest{
         homePage.openUrl();
         homePage.openLoginPage();
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.setInvalidLogin();
-        loginPage.setValidPassword();
+        loginPage.typeInvalidLogin("k@tut.by");
+        loginPage.typeValidPassword("filonenko1234");
         loginPage.clickEnterButton();
         Assert.assertEquals(loginPage.getFailedLoginMessage(), loginPage.expectedFailedLoginMessage());
     }
@@ -35,8 +35,8 @@ public class WebsiteTest extends BaseTest{
         homePage.openUrl();
         homePage.openLoginPage();
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.setValidLogin();
-        loginPage.setInvalidPassword();
+        loginPage.typeValidLogin("filonenko_k@tut.by");
+        loginPage.typeInvalidPassword("1234");
         loginPage.clickEnterButton();
         Assert.assertEquals(loginPage.getFailedLoginMessage(), loginPage.expectedFailedLoginMessage());
     }
@@ -45,7 +45,7 @@ public class WebsiteTest extends BaseTest{
         HomePage homePage = new HomePage(driver);
         homePage.openUrl();
         SearchPage searchPage = new SearchPage(driver);
-        searchPage.setSearchField();
+        searchPage.typeSearchField("крем");
         searchPage.clickSearchIcon();
         searchPage.getFoundProductsList();
         searchPage.findProduct("Крем для лица ночной с муцином улитки");

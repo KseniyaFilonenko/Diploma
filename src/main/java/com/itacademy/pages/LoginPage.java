@@ -20,17 +20,17 @@ public class LoginPage extends BasePage{
         super(driver);
         PageFactory.initElements(driver, this);
     }
-    public void setValidLogin(){
-        loginField.sendKeys("filonenko_k@tut.by");
+    public void typeValidLogin(String validLogin){
+        loginField.sendKeys(validLogin);
     }
-    public void setInvalidLogin(){
-        loginField.sendKeys("k@tut.by");
+    public void typeInvalidLogin(String invalidLogin){
+        loginField.sendKeys(invalidLogin);
     }
-    public void setValidPassword(){
-        passwordField.sendKeys("filonenko1234");
+    public void typeValidPassword(String validPassword){
+        passwordField.sendKeys(validPassword);
     }
-    public void setInvalidPassword(){
-        passwordField.sendKeys("1234");
+    public void typeInvalidPassword(String invalidPassword){
+        passwordField.sendKeys(invalidPassword);
     }
     public void clickEnterButton(){
         enterButton.click();
