@@ -134,13 +134,8 @@
           <version>3.2.5</version>
           <configuration>
             <suiteXmlFiles>
-<!--              &lt;!&ndash;suppress UnresolvedMavenProperty &ndash;&gt;-->
-<!--              <suiteXmlFile>src/test/resources/testsuites/${suite}.xml</suiteXmlFile>-->
-              <suiteXmlFile>src/test/resources/testsuites/testng.xml</suiteXmlFile>
-              <systemPropertyVatiables>
-                <!--suppress UnresolvedMavenProperty -->
-                <browser>${browser}</browser>
-              </systemPropertyVatiables>
+              <!--suppress UnresolvedMavenProperty -->
+              <suiteXmlFile>src/test/resources/testsuites/${suite}.xml</suiteXmlFile>
             </suiteXmlFiles>
           </configuration>
         </plugin>
