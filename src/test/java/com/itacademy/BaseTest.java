@@ -9,14 +9,12 @@ import org.testng.annotations.Parameters;
 
 import java.time.Duration;
 
-import static com.codeborne.selenide.Configuration.browser;
-
 public class BaseTest {
     protected WebDriver driver;
 
     @BeforeTest
     @Parameters("browser")
-    public void setUp() {
+    public void setUp(String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
             System.setProperty("webdriver.chrome.driver", "C:/Drivers/chromedriver.exe");
             driver = new ChromeDriver();
