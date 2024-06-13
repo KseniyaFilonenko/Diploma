@@ -4,6 +4,7 @@ import com.itacademy.listeners.TestListener;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
@@ -14,6 +15,7 @@ import java.time.Duration;
 @Listeners(TestListener.class)
 public class BaseTest {
     protected WebDriver driver;
+    private WebDriverWait wait;
 
     @BeforeTest
     @Parameters("browser")
@@ -28,6 +30,7 @@ public class BaseTest {
         driver.get("https://belita-shop.by/");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
     @AfterTest
     public void closeSession() {

@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Browsers Suite" parallel="tests" thread-count="2">
     <test name="Chrome Test">
-        <parameter name="browser" value="chrome" />
+        <parameter name="browser" value="browser" />
         <classes>
             <class name="com.itacademy.WebsiteTest" />
         </classes>
