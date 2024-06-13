@@ -2,6 +2,8 @@ package com.itacademy;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -11,6 +13,7 @@ import static io.restassured.RestAssured.given;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class ApiTest {
+    private static final Logger LOGGER = LogManager.getLogger(ApiTest.class);
     @BeforeTest
     public void setUp() {
         RestAssured.baseURI = "https://belita-shop.by";

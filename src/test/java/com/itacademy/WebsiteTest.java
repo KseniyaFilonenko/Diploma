@@ -4,10 +4,13 @@ import com.itacademy.listeners.TestListener;
 import com.itacademy.pages.HomePage;
 import com.itacademy.pages.LoginPage;
 import com.itacademy.pages.SearchPage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class WebsiteTest extends BaseTest{
+    private static final Logger LOGGER = LogManager.getLogger(WebsiteTest.class);
     @Test
     public void verifyValidLogin(){
         HomePage homePage = new HomePage(driver);
