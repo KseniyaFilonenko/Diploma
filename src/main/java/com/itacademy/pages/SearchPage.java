@@ -1,5 +1,6 @@
 package com.itacademy.pages;
 
+import com.itacademy.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SearchPage extends BasePage{
+public class SearchPage extends BasePage {
     @FindBy(xpath = "//*[contains(@class, 'form-control') and contains(@placeholder, 'Поиск по каталогу')]")
     private WebElement searchField;
     @FindBy(xpath = "//*[@class='catalog-list']")

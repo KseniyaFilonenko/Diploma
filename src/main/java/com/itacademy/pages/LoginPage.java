@@ -1,11 +1,12 @@
 package com.itacademy.pages;
 
+import com.itacademy.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage extends BasePage{
+public class LoginPage extends BasePage {
     @FindBy(xpath = "//*[@name='USER_LOGIN']")
     private WebElement loginField;
     @FindBy(xpath = "//*[@name='USER_PASSWORD']")
