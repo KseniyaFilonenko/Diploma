@@ -10,21 +10,21 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
         LOGGER.info("====================================");
-        LOGGER.info("TEST IS STARTED");
+        LOGGER.info("TEST " + result.getMethod().getMethodName() + " IS STARTED");
         LOGGER.info("====================================");
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
         LOGGER.info("====================================");
-        LOGGER.info("TEST IS SUCCESSFULLY PASSED");
+        LOGGER.info("TEST " + result.getMethod().getMethodName() + " IS SUCCESSFULLY PASSED");
         LOGGER.info("====================================");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
         LOGGER.info("====================================");
-        LOGGER.info("TEST IS FAILED");
+        LOGGER.info("TEST " + result.getMethod().getMethodName() +  "IS FAILED");
         LOGGER.info("====================================");
     }
 }
