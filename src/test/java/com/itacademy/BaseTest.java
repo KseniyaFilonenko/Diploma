@@ -23,11 +23,9 @@ public class BaseTest {
         if (browser == null)
             browser = "chrome";
         if (browser.equalsIgnoreCase("chrome")) {
-            LOGGER.debug("Browser is chrome");
             System.setProperty("webdriver.chrome.driver", "C:/Drivers/chromedriver.exe");
             driver = new ChromeDriver();
         } else if (browser.equalsIgnoreCase("firefox")) {
-            LOGGER.debug("Browser is firefox");
             System.setProperty("webdriver.gecko.driver", "C:/Drivers/geckodriver.exe");
             driver = new FirefoxDriver();
         }
