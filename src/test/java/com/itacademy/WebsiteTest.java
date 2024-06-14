@@ -1,6 +1,5 @@
 package com.itacademy;
 
-import com.itacademy.listeners.TestListener;
 import com.itacademy.pages.HomePage;
 import com.itacademy.pages.LoginPage;
 import com.itacademy.pages.SearchPage;
@@ -17,8 +16,8 @@ public class WebsiteTest extends BaseTest{
         homePage.openUrl();
         homePage.openLoginPage();
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.typeValidLogin("filonenko_k@tut.by");
-        loginPage.typeValidPassword("filonenko1234");
+        loginPage.typeLogin("filonenko_k@tut.by");
+        loginPage.typePassword("filonenko1234");
         loginPage.clickEnterButton();
         Assert.assertEquals(loginPage.getSuccessLoginMessage(), loginPage.expectedSuccessLoginMessage());
     }
@@ -28,8 +27,8 @@ public class WebsiteTest extends BaseTest{
         homePage.openUrl();
         homePage.openLoginPage();
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.typeInvalidLogin("k@tut.by");
-        loginPage.typeValidPassword("filonenko1234");
+        loginPage.typeLogin("k@tut.by");
+        loginPage.typePassword("filonenko1234");
         loginPage.clickEnterButton();
         Assert.assertEquals(loginPage.getFailedLoginMessage(), loginPage.expectedFailedLoginMessage());
     }
@@ -39,8 +38,8 @@ public class WebsiteTest extends BaseTest{
         homePage.openUrl();
         homePage.openLoginPage();
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.typeValidLogin("filonenko_k@tut.by");
-        loginPage.typeInvalidPassword("1234");
+        loginPage.typeLogin("filonenko_k@tut.by");
+        loginPage.typePassword("1234");
         loginPage.clickEnterButton();
         Assert.assertEquals(loginPage.getFailedLoginMessage(), loginPage.expectedFailedLoginMessage());
     }

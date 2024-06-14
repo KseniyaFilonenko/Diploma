@@ -1,6 +1,5 @@
 package com.itacademy.pages;
 
-import com.itacademy.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,17 +20,11 @@ public class LoginPage extends BasePage {
         super(driver);
         PageFactory.initElements(driver, this);
     }
-    public void typeValidLogin(String validLogin){
-        loginField.sendKeys(validLogin);
+    public void typeLogin(String loginValue){
+        loginField.sendKeys(loginValue);
     }
-    public void typeInvalidLogin(String invalidLogin){
-        loginField.sendKeys(invalidLogin);
-    }
-    public void typeValidPassword(String validPassword){
-        passwordField.sendKeys(validPassword);
-    }
-    public void typeInvalidPassword(String invalidPassword){
-        passwordField.sendKeys(invalidPassword);
+    public void typePassword(String passwordValue){
+        passwordField.sendKeys(passwordValue);
     }
     public void clickEnterButton(){
         enterButton.click();
