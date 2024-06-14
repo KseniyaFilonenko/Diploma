@@ -8,10 +8,11 @@ Project structure:
 2. HomePage - selectors, constructors and methods on the Home page
 3. LoginPage - selectors, constructors and methods on the Login page
 4. SearchPage - selectors, constructors and methods on the Search page
-5. ApiTest - API tests
-6. BaseTest - base test for Before- and AfterTest
-7. WebsiteTest - UI tests
-8. allure resources
-9. json resources
-10. testsuites resources
-11. log4j2.properties
+5. TestListeners - created for listeners with LOGGERs
+6. ApiTest - created for API tests
+7. BaseTest - base test for Before- and AfterMethod
+8. WebsiteTest - created for UI tests
+9. allure properties - to use Allure report
+10. json resources - to use json parameters in UI test
+11. testsuites resources - to create 2 testng.xml files for UI and API tests separately
+12. log4j2.properties - to use LOGGERs
