@@ -7,10 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.time.Duration;
 
@@ -19,9 +16,12 @@ public class BaseTest {
     protected WebDriver driver;
     private WebDriverWait wait;
     private static final Logger LOGGER = LogManager.getLogger(BaseTest.class);
-    @BeforeTest
-    @Parameters("browser")
-    public void setUp(String browser) {
+    @BeforeMethod
+    public void setUp() {
+        String browser = System.getProperty("browser");
+        LOGGER.info("Browser: " + browser);
+        if (browser == null)
+            browser = "chrome";
         if (browser.equalsIgnoreCase("chrome")) {
             LOGGER.debug("Browser is chrome");
             System.setProperty("webdriver.chrome.driver", "C:/Drivers/chromedriver.exe");
@@ -36,7 +36,7 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
-    @AfterTest
+    @AfterMethod
     public void closeSession() {
         driver.quit();
     }
