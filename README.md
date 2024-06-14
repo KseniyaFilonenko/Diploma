@@ -13,4 +13,5 @@ Project structure:
 7. WebsiteTest - UI tests
 8. allure resources
 9. json resources
-10. restsuites resources
+10. testsuites resources
+11. log4j2.properties
