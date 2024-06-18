@@ -28,11 +28,16 @@ public class LoginPage extends BasePage {
         PageFactory.initElements(driver, this);
     }
     public void typeLogin(String loginValue){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         wait.until(ExpectedConditions.visibilityOf(loginField));
         loginField.sendKeys(loginValue);
     }
     public void typePassword(String passwordValue){
-        wait.until(ExpectedConditions.visibilityOf(loginField));
+        wait.until(ExpectedConditions.visibilityOf(passwordField));
         passwordField.sendKeys(passwordValue);
     }
     public void clickEnterButton(){

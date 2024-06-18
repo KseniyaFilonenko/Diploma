@@ -21,7 +21,7 @@ public class BaseTest {
         String browser = System.getProperty("browser");
         LOGGER.info("Browser: " + browser);
         if (browser == null)
-            browser = "chrome";
+            browser = "firefox";
         if (browser.equalsIgnoreCase("chrome")) {
             System.setProperty("webdriver.chrome.driver", "C:/Drivers/chromedriver.exe");
             driver = new ChromeDriver();
