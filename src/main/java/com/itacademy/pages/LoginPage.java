@@ -4,8 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LoginPage extends BasePage {
+    private WebDriverWait wait;
     @FindBy(xpath = "//*[@name='USER_LOGIN']")
     private WebElement loginField;
     @FindBy(xpath = "//*[@name='USER_PASSWORD']")
@@ -18,12 +23,16 @@ public class LoginPage extends BasePage {
     private WebElement failedLoginMessage;
     public LoginPage(WebDriver driver) {
         super(driver);
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         PageFactory.initElements(driver, this);
     }
     public void typeLogin(String loginValue){
+        wait.until(ExpectedConditions.visibilityOf(loginField));
         loginField.sendKeys(loginValue);
     }
     public void typePassword(String passwordValue){
+        wait.until(ExpectedConditions.visibilityOf(loginField));
         passwordField.sendKeys(passwordValue);
     }
     public void clickEnterButton(){
