@@ -24,7 +24,7 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         LOGGER.info("====================================");
-        LOGGER.info("TEST " + result.getMethod().getMethodName() +  "IS FAILED");
+        LOGGER.info("TEST " + result.getMethod().getMethodName() +  " IS FAILED");
         LOGGER.info("====================================");
     }
 }
