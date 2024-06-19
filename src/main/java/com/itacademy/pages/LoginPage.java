@@ -6,7 +6,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import io.qameta.allure.Allure;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
+import java.io.ByteArrayInputStream;
 import java.time.Duration;
 
 public class LoginPage extends BasePage {
@@ -27,6 +31,10 @@ public class LoginPage extends BasePage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         PageFactory.initElements(driver, this);
     }
+    public void saveScreenshot(WebDriver driver, String screenshotName) {
+        ByteArrayInputStream screenshotStream = new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
+        Allure.addAttachment(screenshotName, screenshotStream);
+    }
     public void typeLogin(String loginValue){
         try {
             Thread.sleep(5000);
@@ -34,7 +42,9 @@ public class LoginPage extends BasePage {
             throw new RuntimeException(e);
         }
         wait.until(ExpectedConditions.visibilityOf(loginField));
+        saveScreenshot(driver, "Before typing login");
         loginField.sendKeys(loginValue);
+        saveScreenshot(driver, "After typing login");
     }
     public void typePassword(String passwordValue){
         wait.until(ExpectedConditions.visibilityOf(passwordField));
