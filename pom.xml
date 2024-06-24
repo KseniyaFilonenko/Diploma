@@ -73,10 +73,10 @@
       <version>5.4.0</version>
     </dependency>
     <dependency>
-      <groupId>org.aspectj</groupId>
-      <artifactId>aspectjweaver</artifactId>
-      <version>1.9.22</version>
-    </dependency>
+    <groupId>org.aspectj</groupId>
+    <artifactId>aspectjweaver</artifactId>
+    <version>1.9.22</version>
+  </dependency>
   </dependencies>
   <build>
     <plugins>
