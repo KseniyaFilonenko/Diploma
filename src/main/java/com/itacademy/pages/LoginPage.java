@@ -1,5 +1,6 @@
 package com.itacademy.pages;
 
+import com.itacademy.utils.ScreenshotUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,22 +30,18 @@ public class LoginPage extends BasePage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         PageFactory.initElements(driver, this);
     }
-    @Attachment(value = "Page screenshot", type = "image/png")
-    public byte[] saveScreenshot(WebDriver driver) {
-        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-    }
     public void typeLogin(String loginValue){
-        saveScreenshot(driver);
+        ScreenshotUtils.saveScreenshot(driver);
         wait.until(ExpectedConditions.visibilityOf(loginField));
-        saveScreenshot(driver);
+        ScreenshotUtils.saveScreenshot(driver);
         loginField.sendKeys(loginValue);
-        saveScreenshot(driver);
+        ScreenshotUtils.saveScreenshot(driver);
     }
     public void typePassword(String passwordValue){
         wait.until(ExpectedConditions.visibilityOf(passwordField));
-        saveScreenshot(driver);
+        ScreenshotUtils.saveScreenshot(driver);
         passwordField.sendKeys(passwordValue);
-        saveScreenshot(driver);
+        ScreenshotUtils.saveScreenshot(driver);
     }
     public void clickEnterButton(){
         enterButton.click();
