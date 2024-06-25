@@ -34,11 +34,6 @@ public class LoginPage extends BasePage {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
     public void typeLogin(String loginValue){
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         saveScreenshot(driver);
         wait.until(ExpectedConditions.visibilityOf(loginField));
         saveScreenshot(driver);
