@@ -1,6 +1,5 @@
 package com.itacademy.pages;
 
-import com.itacademy.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,10 +18,5 @@ public class HomePage extends BasePage {
     }
     public void openLoginPage(){
         loginButton.click();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
     }
 }

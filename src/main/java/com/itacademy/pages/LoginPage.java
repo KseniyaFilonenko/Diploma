@@ -26,7 +26,6 @@ public class LoginPage extends BasePage {
     private WebElement failedLoginMessage;
     public LoginPage(WebDriver driver) {
         super(driver);
-        this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         PageFactory.initElements(driver, this);
     }
@@ -47,7 +46,9 @@ public class LoginPage extends BasePage {
     }
     public void typePassword(String passwordValue){
         wait.until(ExpectedConditions.visibilityOf(passwordField));
+        saveScreenshot(driver);
         passwordField.sendKeys(passwordValue);
+        saveScreenshot(driver);
     }
     public void clickEnterButton(){
         enterButton.click();
