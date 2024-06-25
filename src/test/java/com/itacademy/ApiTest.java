@@ -44,7 +44,7 @@ public class ApiTest {
     }
 
     @Test
-    public void getResponseToVerifyPragmaHeader() {
+    public void postResponseToVerifyPragmaHeader() {
         File file = new File("src/test/resources/json/newUser.json");
         Response response = given().log().all()
                 .when().post("/auth/?login=yes")
