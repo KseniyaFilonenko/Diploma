@@ -16,3 +16,5 @@ Project structure:
 10. json resources - to use json parameters in UI test
 11. testsuites resources - to create 2 testng.xml files for UI and API tests separately
 12. log4j2.properties - to use LOGGERs
+13. DriverFactory - for drivers
+14. ScreenshotUtils - for screenshots
