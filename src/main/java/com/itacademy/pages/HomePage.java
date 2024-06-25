@@ -17,6 +17,11 @@ public class HomePage extends BasePage {
         driver.get("https://belita-shop.by/");
     }
     public void openLoginPage(){
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         loginButton.click();
     }
 }
