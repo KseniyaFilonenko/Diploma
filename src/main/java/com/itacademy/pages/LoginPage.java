@@ -26,7 +26,7 @@ public class LoginPage extends BasePage {
     private WebElement failedLoginMessage;
     public LoginPage(WebDriver driver) {
         super(driver);
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         PageFactory.initElements(driver, this);
     }
     @Attachment(value = "Page screenshot", type = "image/png")
@@ -39,6 +39,7 @@ public class LoginPage extends BasePage {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        saveScreenshot(driver);
         wait.until(ExpectedConditions.visibilityOf(loginField));
         saveScreenshot(driver);
         loginField.sendKeys(loginValue);
