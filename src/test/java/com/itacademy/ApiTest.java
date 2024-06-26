@@ -1,9 +1,8 @@
 package com.itacademy;
 
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -16,13 +15,6 @@ public class ApiTest {
     @BeforeTest
     public void setUp() {
         RestAssured.baseURI = "https://belita-shop.by";
-    }
-
-    @Test
-    public void getPosts() {
-        given().log().all()
-                .when().get("")
-                .then().log().body().statusCode(200);
     }
 
     @Test
@@ -44,10 +36,18 @@ public class ApiTest {
     }
 
     @Test
-    public void postResponseToVerifyPragmaHeader() {
-        File file = new File("src/test/resources/json/newUser.json");
-        Response response = given().log().all()
+    public void postLogin() {
+        File file = new File("src/test/resources/json/existedUser.json");
+        given().log().all().contentType(ContentType.JSON).body(file)
                 .when().post("/auth/?login=yes")
+                .then().log().body().statusCode(200);
+    }
+    @Test
+    public void postAddToCart() {
+        Response response = given().header("Content-Type", "application/x-www-form-urlencoded")
+                .body("action=addInBasket&id=41270&quantity=1&basket=%2Fpersonal%2Fcart%2F&order=%2Fpersonal%2Forder%2F&currency=BYN")
+                .log().all()
+                .when().post("/local/templates/.default/components/bitrix/sale.basket.basket.small/dbBasket/ajax.php")
                 .then().log().all().extract().response();
         assertEquals(response.statusCode(), 200);
     }
