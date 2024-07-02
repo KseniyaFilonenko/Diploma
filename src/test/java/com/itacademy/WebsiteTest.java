@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 public class WebsiteTest extends BaseTest{
     private static final Logger LOGGER = LogManager.getLogger(WebsiteTest.class);
     @Test
-    public void verifyValidLogin(){
+    public void verifyValidLoginTest(){
         HomePage homePage = new HomePage(driver);
         homePage.openUrl();
         LOGGER.info("URL is opened");
@@ -26,7 +26,7 @@ public class WebsiteTest extends BaseTest{
         Assert.assertEquals(loginPage.getSuccessLoginMessage(), loginPage.expectedSuccessLoginMessage());
     }
     @Test
-    public void verifyInvalidLogin(){
+    public void verifyInvalidLoginTest(){
         HomePage homePage = new HomePage(driver);
         homePage.openUrl();
         LOGGER.info("URL is opened");
@@ -41,7 +41,7 @@ public class WebsiteTest extends BaseTest{
         Assert.assertEquals(loginPage.getFailedLoginMessage(), loginPage.expectedFailedLoginMessage());
     }
     @Test
-    public void verifyInvalidPassword(){
+    public void verifyInvalidPasswordTest(){
         HomePage homePage = new HomePage(driver);
         homePage.openUrl();
         LOGGER.info("URL is opened");
@@ -56,7 +56,7 @@ public class WebsiteTest extends BaseTest{
         Assert.assertEquals(loginPage.getFailedLoginMessage(), loginPage.expectedFailedLoginMessage());
     }
     @Test
-    public void verifySearch(){
+    public void verifySearchTest(){
         HomePage homePage = new HomePage(driver);
         homePage.openUrl();
         LOGGER.info("URL is opened");
