@@ -13,12 +13,12 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class ApiTest {
     @BeforeTest
-    public void setUp() {
+    public void setUpTest() {
         RestAssured.baseURI = "https://belita-shop.by";
     }
 
     @Test
-    public void getResponseToVerifyServerHeader() {
+    public void getResponseToVerifyServerHeaderTest() {
         Response response = given().log().all()
                 .when().get("/auth/")
                 .then().log().all().extract().response();
@@ -27,7 +27,7 @@ public class ApiTest {
     }
 
     @Test
-    public void getResponseToVerifyContentEncodingHeader() {
+    public void getResponseToVerifyContentEncodingHeaderTest() {
         Response response = given().log().all()
                 .when().get("/oplata-i-dostavka/")
                 .then().log().all().extract().response();
@@ -36,14 +36,14 @@ public class ApiTest {
     }
 
     @Test
-    public void postLogin() {
+    public void postLoginTest() {
         File file = new File("src/test/resources/json/existedUser.json");
         given().log().all().contentType(ContentType.JSON).body(file)
                 .when().post("/auth/?login=yes")
                 .then().log().body().statusCode(200);
     }
     @Test
-    public void postAddToCart() {
+    public void postAddToCartTest() {
         Response response = given().header("Content-Type", "application/x-www-form-urlencoded")
                 .body("action=addInBasket&id=41270&quantity=1&basket=%2Fpersonal%2Fcart%2F&order=%2Fpersonal%2Forder%2F&currency=BYN")
                 .log().all()
