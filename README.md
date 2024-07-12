@@ -10,7 +10,7 @@ Project structure:
 2. HomePage - selectors, constructors and methods on the Home page (extends BasePage)
 3. LoginPage - selectors, constructors and methods on the Login page (extends BasePage)
 4. SearchPage - selectors, constructors and methods on the Search page (extends BasePage)
-listeners:
+* listeners:
 5. TestListeners - created for listeners with LOGGERs
 * tests:
 6. ApiTest - created for API tests
